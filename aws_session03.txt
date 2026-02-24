@@ -161,7 +161,6 @@ cp aws_session02.txt aws_session03.txt repos/daws-88s/
 
 GIT Config to Git Bash:
 ------------------------
-git credential-manager clear
 
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
@@ -175,3 +174,12 @@ git add .
 git status
 git commit -m "Updated Session03.txt file"
 git push origin main
+
+
+
+How to remove existing Git Credentials:
+-----------------------------------------
+1. Search: Credential Manager
+2. Windows Credentials
+3. Check carefully and remove git:https://github.com 
+4. Try Now with commands 
