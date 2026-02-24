@@ -161,6 +161,7 @@ cp aws_session02.txt aws_session03.txt repos/daws-88s/
 
 GIT Config to Git Bash:
 ------------------------
+git credential-manager clear
 
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
