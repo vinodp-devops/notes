@@ -1,0 +1,142 @@
+3 tier architecture
+======================
+Disadvantages of Desktop applications 
+- May Crash
+- Consumes more Desktop memory & Not Portable
+- chances of anti-virues
+- More maintance & cost,  Not Safe
+
+So, Moved Desktop Applications >>> Web Applications
+-----------------------------------------------------------------------------------------------
+																				SQL
+																				NoSQL
+																				Cache
+																				Queues|Logs
+[Load Balancer] -->  [Web Server] ----> [App Server] -------------->  [DB Server] 
+             Web Tier   HTML	  Weblogic	  Python   App Tier 	   DB Tier	MySQL
+						CSS 	  WebSphere   Java								Oracle
+						JS 		  JBOSS 	  .NET                              Postgress
+						ReactJS 			  Go 								MSSQL
+						AngularJS 			  NodeJS 							Redis
+																				MongoDB
+																				Kafka
+																				ELK
+------------------------------------------------------------------------------------------------
+Expense-Documentation :
+------------------------------------------------------------------------------------------------
+ami-0220d79f3f480ecf5
+devops-practice
+RHEL-9 -> enterprise, community
+Redhat-9-DevOps-Practice
+------------------------
+ec2-user DevOps321     |
+------------------------
+ec2-user@IP_ADDRESS    |
+DevOps321              |
+------------------------
+
+=================================================================
+How to Create 'database-server' with community edition
+-----------------------------------------------------------------
+1. database-server, application-server, frontend-server
+2. select community edition :
+	- ami-0220d79f3f480ecf5      -> ID
+	- Redhat-9-DevOps-Practice   -> Name as per AWS terms
+
+3. t3micro
+4. KeyPair : Proceed without a key pair 
+5. Select Existing Security Group
+	- daws-88s-allow-all
+6. [Launch instance]
+7. ec2-user DevOps321 -> Username Password
+-----------------------------------------------------------------
+We will get issues when we have all servers in single Linux
+
+For Using Multiple Terminals use MobaXtream
+-------------------------------------------------------------------
+Download: https://mobaxterm.mobatek.net/download-home-edition.html
+-------------------------------------------------------------------
+
+Linux Server -> DB Server (Software Server)
+----------------------------------------------------------------
+SQL -> Structured Query Language
+RDBMS -> Relational Database Management System
+Table and Columns -> Rows & Columns
+
+users
+	Primary Key -> ID
+
+payments
+	Primary Key -> ID
+	Foreign Key -> UserID (1001)
+
+User Details:
+ID        NAME       PHONE        EMAIL
+=================================================
+1001      Rama       9876543210   rama@gmail.com
+
+
+Payment Details:
+ID    	UserID     	Amount     	Date
+=================================================
+1 		 1001		  100 		17/02/2026
+
+
+username -> root
+default port -> 3306
+mysql_secure_installation --set-root-pass ExpenseApp@1
+
+mysql -h  172.31.30.190 -u root -pExpenseApp@1
+
+mysql> show databases;
+mysql> use mysql;
+mysql> show tables;
+mysql> select * from user;
+Displays User Info
+----------------------------------------------------------------
+
+App Server / Backend Server
+----------------------------------------------------------------------
+We are going to use nodeJS as our backend language, version number 20
+
+system users
+============
+human accounts -> username and password
+non-human accounts -> username but no password
+
+Follow Steps:
+https://github.com/alexVinod/expense-documentation/blob/main/backend.MD
+
+curl -o /tmp/backend.zip https://expense-joindevops.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+
+/tmp -> OS stores temp files here, these are not really important
+
+NodeJS
+=======
+extension.js
+libraries == dependencies
+package.json  ===> this is called build file where developers mention the dependencies and application details
+
+npm -> node package manager -> build tool
+
+Python				NodeJS 			Java 		.NET
+.py					.js 			.java 		.net/.aspx
+requirements.txt 	package.json  	pom.xml 	*.csproj
+pip 				npm 			maven 		nuget
+
+
+systemctl -> more flexible to start/stop/enable/disable/status/restart
+
+.service files -> /etc/systemd/system -> *.service
+systemctl start nginx -> /etc/systemd/nginx.service
+
+Public IP vs Private IP
+--------------------------
+Actual Name vs Sweet Name
+
+
+cd /app
+unzip /tmp/backend.zip
+----------------------------------------------------------------------
+
+http://3.95.255.200/#/db

@@ -1,0 +1,123 @@
+Process Management:
+====================
+DM -> He creats some task in his to-do list and assign to TL
+TL -> He creats some task in his to-do list and assign to SE
+SE -> He creats some task in his to-do list and assign to JE
+JE -> He creats some task in his to-do list and assign to Fresher
+Fresher -> He creats some task in his to-do list and completes the task
+
+Parent -> Child
+Who is parent for TL -> DM
+
+root process
+0 - PID -> Process Instance ID
+1 - PID -> Process Instance ID
+
+PID		PPID
+2  		 0
+3		 1 
+
+ps -> Proces started by current user
+
+whatever the task you give to Linux. first it will create one PID then work on it, give the results and complete the process.
+
+ps -ef -> To view all processes in server
+
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 05:11 ?        00:00:04 /usr/lib/syste
+root           2       0  0 05:11 ?        00:00:00 [kthreadd]
+root           3       2  0 05:11 ?        00:00:00 [rcu_gp]
+root           4       2  0 05:11 ?        00:00:00 [rcu_par_gp]
+
+There are 2 process:
+---------------------
+1. background process -> When background process running we can perform any operations
+2. foregrounf process -> when foreground process running we can't perform any operations
+
+Foregrounf process Example:
+----------------------------
+sleep 10
+
+Background process Example (Take process into background):
+----------------------------------------------------------
+sleep 10 & -> Ampercent syntax will run in 'Background Proces' 
+
+
+How to Kill & Force Kill the Process :
+-------------------------------------------
+kill PID  -> kill Process Instance ID
+kill -9 PID -> Force Kill the Proces
+
+Example: 
+- First we list the process and will kill
+- ps -ef | grep sleep
+- kill 40149  -> kill pid
+- kill -9 40878
+
+PLSQL -> 30min
+
+Each time a process is created -> CPU, RAM and HD consumes
+
+If Server Stop or Blocked to load services then steps:
+-------------------------------------------------------
+1. First get all the logs, server logs, app logs, DB logs, heap dump, etc...
+2. Kill the process and restart services
+   ps -ef | grep sleep
+   top -> top cmd used for to know how much resources are consumed 
+   
+Will monitor CUP consumption
+5% 10% 20% 80%
+
+3 tier architecture
+======================
+Disadvantages of Desktop applications 
+- May Crash
+- Consumes more Desktop memory & Not Portable
+- chances of anti-virues
+- More maintance & cost,  Not Safe
+
+So, Moved Desktop Applications >>> Web Applications
+-----------------------------------------------------------------------------------------------
+																				SQL
+																				NoSQL
+																				Cache
+																				Queues|Logs
+[Load Balancer] -->  [Web Server] ----> [App Server] -------------->  [DB Server] 
+             Web Tier   HTML	  Weblogic	  Python   App Tier 	   DB Tier	MySQL
+						CSS 	  WebSphere   Java								Oracle
+						JS 		  JBOSS 	  .NET                              Postgress
+						ReactJS 			  Go 								MSSQL
+						AngularJS 			  NodeJS 							Redis
+																				MongoDB
+																				Kafka
+																				ELK
+------------------------------------------------------------------------------------------------
+
+ami-0220d79f3f480ecf5
+devops-practice
+RHEL-9 -> enterprise, community
+Redhat-9-DevOps-Practice
+------------------------
+ec2-user DevOps321     |
+------------------------
+ec2-user@IP_ADDRESS    |
+DevOps321              |
+------------------------
+
+=================================================================
+How to Create 'database-server' with community edition
+-----------------------------------------------------------------
+1. database-server
+2. select community edition :
+	- ami-0220d79f3f480ecf5      -> ID
+	- Redhat-9-DevOps-Practice   -> Name as per AWS terms
+
+3. t3micro
+4. KeyPair : Proceed without a key pair 
+5. Select Existing Security Group
+	- daws-88s-allow-all
+6. [Launch instance]
+7. ec2-user DevOps321 -> Username Password
+-----------------------------------------------------------------
+
+

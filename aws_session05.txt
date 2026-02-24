@@ -1,0 +1,269 @@
+:q -> quit
+:q! -> force quit
+:wq -> write quit
+:/  -> search from top
+:?  -> search from bottom
+:set nu -> display line numbers
+:noh -> no highlight
+:<line-number>
+:%d -> delete everything
+:%s -> substitution
+
+ESC Mode
+=========
+u -> undo
+Ctrl+r -> redo
+gg -> takes to top
+Shift+g -> takes to bottom
+yy -> copy
+p -> paste
+dd -> cut
+shift+p -> paste above the line
+
+useradd <user-name>
+/etc/passwd
+id user-name
+
+/etc/group
+usermod -g group-name user-name
+usermod -aG group-name user-name
+
+passwd user-name
+/etc/ssh/sshd_config
+sshd -t
+
+/etc/sudoers
+vimsudo -c
+
+gpasswd -d <user-name> <group-name>
+userdel
+
+tar -cf *.tar.gz folder_name 
+tar -xf *.tar.gz
+
+awk and cut commands
+
+Permissions
+=====================
+touch permissions.txt
+-	rw-			r--		r--
+	User/Owner	group	others
+	u			g 		o
+chmod o+w permissions.txt
+Either owner of the file or root user can only change access levels
+
+R -> 4
+W -> 2
+X -> 1
+-------------------------
+      ugo
+-------------------------
+chmod 764 permissions.txt -> User RWX, group RW, others R
+chmod 777 permissions.txt -> User RWX, group RWX, others RWX
+chmod 700 permissions.txt -> User RWX, group ---, others ---
+chmod 600 permissions.txt -> User RW-, group ---, others ---
+-------------------------
+
+
+Ownership
+=================
+chown <user>:<group>
+ownership can only be changed by root user. not even owner of the file can change the ownership.
+
+sudo mkdir linux
+cd linux
+sudo touch linux.txt
+sudo groupadd devops
+sudo chown ec2-user:devops linux
+drwxr-xr-x. 2 ec2-user devops   23 Feb 12 02:52 linux
+owner -> ec2-user
+group -> devops
+
+sudo chown -R ec2-user:devops linux -> Ownership will change for folder and inside folder with Recursive
+
+
+KEY BASED Authentication:
+==========================
+Employee joins Organisation
+----------------------------
+1. User should generate keys
+   Admin will ask user to generate keys and give us Public Key *.pub
+   ssh-keygen -f rahim   -> need to public key to Admin
+   SHA256:6Vd7kzCErIxAS+urtH4RpwzKlQt5D7///60wd/xUfWA VINOD@DESKTOP-2MKB5K4 -> PUBLIC KEY
+2. Send public key to admins
+3. Another screen ec2-user@54.165.217.77
+   - sudo su -
+   - create user rahim
+     useradd rahim
+   - Now redirect to /home/rahim folder. When we create user Linux automatically creates 'rahim' folder in '/home' directory 
+     cd /home/rahim 
+	 ls -la
+	 
+   - Make a Hidden directory in 'rahim' folder with '.ssh' name
+     mkdir .ssh
+	 
+   - Now create 'authorized_keys' file in '/home/ramesh/.ssh/' directory and paste 'USER PUBLIC KEY'
+     cd .ssh
+	 touch authorized_keys
+	 vim authorized_keys
+	 SHA256:6Vd7kzCErIxAS+urtH4RpwzKlQt5D7///60wd/xUfWA VINOD@DESKTOP-2MKB5K4
+   
+   - Now give complete ownership including group '.ssd' directory to user 'rahim'
+	 cd .. -> redirected to 'rahim' directory
+	 chown rahim:rahim -R .ssh/ -> this will recuresivly give access to 'directory' and inside files
+	 
+   - Now set the Permission to file 'authorized_keys' and '.ssh' directory
+     authorized_keys permission should be max 600 and can be less also 400
+	 cd .ssh
+	       ugo
+	 chmod 600 authorized_keys -> RW- -> Read Write access
+	 
+	 cd ..
+		   ugo 	
+	 chmod 700 .ssh -> RWX -> Read Write Execute access
+
+Other Screen: Login
+   - Now will ask rahim to login with your key
+     ssh -i PrivateKey Username@IP_Address
+	 ssh -i rahim rahim@54.165.217.77
+	 
+	 add him to wheel group -> Not required (revise)
+	 /etc/sudoers
+
+Adding the User to Group Access:
+=================================
+Root Screen:ec2-user
+sudo su -
+groupadd devops
+usermod -g devops rahim
+id rahim
+uid=1001(rahim) gid=1002(devops) groups=1002(devops)
+
+
+How to give Admin access to devops group:
+=========================================
+1. cd /etc/sudoers.d/
+	ls -l
+	-r--r-----. 1 root root 128 Feb 13 00:02 90-cloud-init-users
+2. Creating file on devops group
+	vim devops -> creating sperate file in '/etc/sudoers.d/' helps to not touch main 'sudoers' file 
+	if any wrong changes done in main file, may have chance to loose access to users.
+	%devops ALL=(ALL) NOPASSWD:ALL -> Save & Quit
+	
+	visudo -c -> Check the syntax
+	ERROR:
+	/etc/sudoers.d/devops: bad permissions, should be mode 0440
+	
+	chmod 400 devops -> Permission is set to 400 -> R--
+	
+
+Package Management:
+=======================
+yum -> old rhel
+dnf -> latest
+Ubuntu -> apt-get or apt install
+
+dnf install <package-name>
+/etc/yum.repos.d/  -> all URLS are configured
+
+Linux created by Linus Torvalds, he developd linux kernel from the scratch using c language... he invented git also...
+
+Readhat -> commands + apps -> Redhat flavour/distribution -> CentOS/Fedora
+Reahat family = redhat = centos = fedora = aws linux
+Ubuntu
+Oracle
+Suse
+IBM
+
+1. community edition -> free
+2. enterprise edition -> support redhat
+
+
+sudo su -
+dnf install nginx -y -> it installs 'nginx' package from amazon Repository
+cd /etc/yum.repos.d/
+ls -l
+-rw-r--r--. 1 root root 1028 Jan 28 22:24 amazonlinux.repo
+-rw-r--r--. 1 root root  729 Jan 28 22:24 kernel-livepatch.repo
+
+cat amazonlinux.repo -> can see package info in this path /etc/yum.repos.d/
+
+dnf remove nginx -y -> remove installed package
+
+dnf list installed  -> Installed packages list
+dnf list available  -> Available list to install
+dnf search python   -> search packages related to python
+
+If Package is not avalible for install and need to get it sperately then:
+-------------------------------------------------------------------------
+cd /etc/yum.repos.d/
+ls -l
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/rpm-stable/jenkins.repo
+sudo dnf upgrade
+# Add required dependencies for the Jenkins package
+sudo dnf install fontconfig java-21-openjdk
+sudo dnf install jenkins
+sudo systemctl daemon-reload
+
+
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/rpm-stable/jenkins.repo
+	
+cat jenkins.repo
+dnf install jenkins -y
+dnf remove jenkins -y
+
+
+
+Service Management:
+======================
+0-65535 -> This many ports contains in System
+
+https://facebook.com
+
+ssh facebook.com 
+port 22 sshd service is running
+
+sshd -> d -> daemon
+
+1. get the facebook.com IP address
+2. connect to the service running on port 443
+https ->443
+
+Delhi -> Hyderabad
+HYD pincode -> HYD central office
+Street name -> Street
+Appartment name -> Appartment
+Flat number -> Flat
+
+systemctl start <service-name>
+systemctl restart <service-name>
+systemctl status <service-name> -> check service is running or not
+systemctl enable <service-name>
+systemctl disable <service-name>
+systemctl stop <service-name>
+
+This operations can perform on only services which can provide responses for online users.
+
+nginx -> http/webserver -> we can host HTML applications
+systemctl start nginx
+systemctl enable nginx
+systemctl status nginx
+
+http://54.163.8.211:80
+
+systemctl stop nginx
+
+
+Network Management:
+=======================
+netstat --help -> Can get help
+netstat -lntp  -> Network Statistics
+		-lntp	   -> Listening Numeric TCP Program
+		
+
+netstat -lntp -> check port is running or not and accessible to internet
+

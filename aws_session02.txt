@@ -1,0 +1,43 @@
+aws Session 01
+============================================================================
+Linux Server <=============== SSH Client
+
+>>> First Create Firewall (Network & Security > Security Groups)
+	- Security Groups > Create Security Groups > 
+		- Security group name : daws-88s-allow-all
+		- Description : Allow Every Protocol and Port
+		- Inbound rules:
+			=> Type: All traffic
+			=> 0.0.0.0/0
+		- Outbound rules:
+			=> Type: All traffic
+			=> 0.0.0.0/0
+			
+		- [Create Security Group]
+		
+>>> Create Key Pairs (Network & Security > Key Pairs)
+	- Actoins (Import key pair)
+	- Name: daws-88s
+	- git bash == SSH Client == Mini Linux              
+	- cd devops/ ssh-keygen -f daws-88s  => it will create Private and Public keys
+	- Now copy Public key context and paste in import key pair file without newline
+	  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUmwDv/d008CUefAjD5seRhXHkz2m3u+T1Tdfjo5CBG VINOD@DESKTOP-2MKB5K4
+	- [Import key pair]
+	
+>>> Create EC2 Instance (Instances)
+	- Name: linux-practice
+	- Instance type: t3 micro
+	- Key pair: daws-88s
+	- Networking Settings: 
+		=> Select existing security group
+		=> Common security groups: daws-88s-allow-all
+	- [Launch instance]
+	
+	- Public IP:  13.221.110.87
+	- Private IP: 172.31.27.32
+
+>>> Connect to Server using gitBash
+	- ssh -i <private-key> user-name@IP
+	- ssh -i daws-88s ec2-user@13.221.110.87
+	- yes
+	- to comeout EXIT
