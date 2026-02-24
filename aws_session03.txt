@@ -183,3 +183,14 @@ How to remove existing Git Credentials:
 2. Windows Credentials
 3. Check carefully and remove git:https://github.com 
 4. Try Now with commands 
+
+
+How to clone someones repo to our repo :
+------------------------------------------
+1. git clone <their repo>
+2. cd repo
+3. git remote remove origin
+4. git remote add origin <your repo>
+5. git push -u origin main
+
+
