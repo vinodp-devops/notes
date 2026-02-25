@@ -1,0 +1,130 @@
+ami-0220d79f3f480ecf5
+ami-0220d79f3f480ecf5
+devops-practice
+RHEL-9 -> enterprise, community
+Redhat-9-DevOps-Practice
+------------------------
+ec2-user DevOps321     |
+------------------------
+ec2-user@IP_ADDRESS    |
+DevOps321              |
+------------------------
+
+code and configuration
+
+/var/log -> logs location
+
+mysql -h <MYSQL-SERVER-PRIVATE-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+telnet DB_PRIVATE_IP PORT(3306)
+
+1. Installing programming runtime
+2. Create a directory and system user
+3. Download and unzip the code
+4. Install dependencies
+5. Create systemctl service
+6. Run DB scripts if required
+7. start the application
+
+Nginx:
+================================
+popular http web server, reverse proxy
+Apache -> Nginx
+HTML, CSS, and JS -> Web Server
+
+configs -> /etc/nginx
+HTML -> /usr/share/nginx/html
+logs -> /var/log/nginx
+default page -> /usr/share/nginx/html/index.html
+
+Proxy -> On behalf of someone
+
+Forward Proxy and Reverse Proxy
+
+CLient and Server
+
+Mobile(CLient) -> Netflix(Server)
+
+Forward Proxy
+================
+1. Hiding client identity
+2. sits in between client & server
+3. client aware
+4. VPN, content filtering, traffic monitoring
+5. Can be used as caching also.
+
+
+Reverse Proxy
+====================
+1. Hiding Server identity
+2. Server aware
+3. Security reasons and queue management
+4. Load balancing
+5. used for SSL/TLS/HTTPS termination
+
+include /etc/nginx/conf.d/*.conf;
+include /etc/nginx/default.d/*.conf;
+
+/etc/sudoers.d/
+
+API -> Application Programming Interface
+
+
+proxy_http_version 1.1;
+
+location /api/ { proxy_pass http://localhost:8080/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+http://3.85.111.189/api/transaction
+
+{
+	amount: "200",
+	desc: "travel"
+}
+
+
+HTTP Methods
+=============
+CRUD
+
+GET -> Verb
+transaction -> noun
+
+getTransactions
+http://3.85.111.189/api/transaction
+GET -> Verb
+
+http://3.85.111.189/api/transaction
+POST -> Creating Data 
+
+http://3.85.111.189/api/transaction
+PUT -> UPDATE
+
+{
+	amount: "2000",
+	desc: "travel"
+}
+
+http://3.85.111.189/api/transaction
+PUT -> DELETE
+
+Domain
+DNS -> Domian Name System
+
+Name -> Mobile Number
+Humans -> Names
+computers -> numbers
+
+word = meaning
+
+facebook.com == 33.45.78.212
+
+ICANN -> Internet Corporation for assigned names and numbers
+Non Profit Organisation
+
+How to buy domain ?
+What happens when we buy domain ?

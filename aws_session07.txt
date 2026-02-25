@@ -125,6 +125,10 @@ requirements.txt 	package.json  	pom.xml 	*.csproj
 pip 				npm 			maven 		nuget
 
 
+npm install -> reads package.json and download the dependencies from internet
+
+dnf install nginx -> systemctl start nginx
+
 systemctl -> more flexible to start/stop/enable/disable/status/restart
 
 .service files -> /etc/systemd/system -> *.service
@@ -134,9 +138,11 @@ Public IP vs Private IP
 --------------------------
 Actual Name vs Sweet Name
 
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 cd /app
 unzip /tmp/backend.zip
 ----------------------------------------------------------------------
 
 http://3.95.255.200/#/db
+
