@@ -1,0 +1,151 @@
+facebook.com
+google.com
+
+
+
+---------------------------------------------------------------------------------------
+(joindevops.com) --> [[Browser Cache]] --> {OS} --> [[OS Cache]]
+														|
+														|
+														|
+						  {{Root Servers}} <-- ((ISP DNS Resolver))
+								  |						|
+								  |						|
+								  |						|
+						verisign{TLD}			   [[DNS Cache]]
+								  |						
+								  |						
+							  (godaddy)	  
+---------------------------------------------------------------------------------------
+Browser -> Cache -> OS -> Cache -> ISP DNS Resolver -> Cache -> Root Servers ->
+TLD information -> Contact TLD -> godaddy (managing by) -> it will now fetches A record
+for us
+---------------------------------------------------------------------------------------
+
+
+DNS resolver -> responsible to get IP address for the domains
+
+Root Servers -> there are 13 root servers in the world formed by different organisations 
+
+Domain informations and TLD information
+
+TLD -> Top Level Domain
+
+.com
+.us
+.uk
+.in
+.net
+.org
+.edu
+.ai
+.con
+.shop
+.online
+
+Anyone can create TLD
+what happens if we buy the domains ?
+
+godaddy, hostinger, aws, gcp, azure, etc...
+
+joindevops.com
+1. availablity check -> check with TLD owner is that domain available or not ?
+2. if available, collect the details name, company, address, mobile, email id, payment info,etc.
+3. when we complete payment, godaddy updates TLD about buyer details and domain details.
+
+4. create one A record againts the domain
+joindevops.com A 167.89.87.23
+
+update anything in your domain it propagates to TLD. -> godaddy will be authouratiy
+
+Root servers
+===============
+tracks all the TLD and their address..
+1. how many servers ?
+2. what is our infra capacity ?
+3. how much funding we have ?
+
+.vinod -> TLD
+I need to approach propular domain registars like godaddy, hostinger, etc.
+
+Root servers has TLD information...
+
+Browser -> Cache -> OS -> Cache -> ISP DNS Resolver -> Cache -> Root Servers ->
+TLD information -> Contact TLD -> godaddy (managing by) -> it will now fetches A record
+for us
+
+ED -> 
+Local police -> MOEA -> MOHA -> Interpole police -> US courts -> Porkbun
+
+Domain registars -> Porkbun
+We can change domain authority to another company
+
+Tuvalu -> .tv
+.in -> Indian government 
+ivs.tv -> video advertising company
+
+Buy a Domain:
+==================================
+1. Goto https://www.hostinger.com/ 
+2. check for Name which YOU_USE for Domain eg: ddaws88s.online
+3. Even check with other Domains with low cost and select for 1 year for practice
+4. Once selected procced with Payment with UPI (or YOUR_COMFORT - UPI we can easy disable Autopay)
+5. Don't fear for Autopay Charges (we can disable in 2places in website & UPI)  - only 1 year charges will be applicable for now
+6. Once Done, Setup >> Finish Registerations
+7. Now OFF Auto-renewal - Domains >>> Domain Overview >>> [right side OFF Auto-renewal] & [Disable Auto-renewal]
+
+Working on Domain:
+===========================================
+1. For our work goto Domains >> Domain Portfolio
+2. Click ddaws88s.online and goto DNS / Nameservers
+3. We change Nameservers 
+	- Total INFRA will be in AWS (Creating Servers, DBs, LoadBalancers, We do anything in AWS)
+		(So, everytime we can't get IPs and give in Hostinger - then, it breaks Automation)
+	- We are changing Domain to AWS DNS - Route 53(Bookmark*)
+	- We can purchase Domains in AWS but charges are Hugh
+		- To buy : Route 53 >>> Registered domains >>> Register domains >>> check and buy
+
+4. Route 53 >> Hosted Zones >> Create hosted zone >> 
+	- Name : ddaws88s.online
+	- Type : Public hosted zone
+	- [Create hosted zone]
+	
+	- Hosted Zone is Management Transfer
+	
+	
+NS -> Name Servers
+
+Who is managing the domain, who is responsible to provide IP address...
+========================================================================
+Goto Hostinger and Chnage Name Servers from AWS Route 53 >> Hosted Zone
+Copy from AWS and Paste in Hostinger
+  Value/Route traffic to:
+  - ns-1817.awsdns-35.co.uk
+  - ns-3.awsdns-00.com
+  - ns-734.awsdns-27.net
+  - ns-1125.awsdns-12.org
+  
+
+DNS Records :
+=============   
+TTL -> Time To Live -> How much time to live in cache or How much time to update
+A -> Holds the IP address of your domain
+
+3600s
+
+atleast 1 day before reduce TTL to 1 sec
+once everything is fine, take TTL back to 3600s
+
+What are root servers ?
+What are TLD ?
+What are domain registars ?
+What are nameservers ?
+What is A record ?
+
+Book a domain
+Temporary -> hostinger -> .online
+Permanent -> godaddy 
+
+IBomma Ravi
+domain buying -> nameservers -> reverse proxy nginx -> backend server 
+
