@@ -1,0 +1,152 @@
+Root servers
+	13 root servers across the world managed by different organisations and governments to control TLD's and part of ICANN. DNS resolutions requests from ISP comes to root servers
+
+TLD 
+	Top Level Domains, basically who sells the domains. It has complete details of the domains booked, available, buyer information, etc.
+	
+Registars
+	Who sells the domains, basically mediators between TLD and end users. Who can manage the domain too.
+	
+NS
+	Who is currently managing the domain, we can buy domain with one registar and we can transfer the management to another registar by updating NS records.
+	
+'A' record is mapping the IP address to domain
+==============================
+Main Domain: 
+==============================
+ddaws88s.online
+
+
+==============================
+Sub-Domains
+==============================
+dev.db.ddaws88s.online
+uat.db.ddaws88s.online
+darkprod.db.ddaws88s.online
+prod.db.ddaws88s.online
+
+db.ddaws88s.online
+backend.ddaws88s.online
+mongodb.ddaws88s.online
+cart.ddaws88s.online
+shipping.ddaws88s.online
+=============================
+---------------------------------------------------------------
+Route 53 >> Hosted zones >> ddaws88s.online >> Create record
+---------------------------------------------------------------
+- Record name:  db (.ddaws88s.online)
+- Value: 		172.31.7.136  -> Private IP
+- TTL: 			1
+- [[Create records]]
+---------------------------------------------------------------
+
+nslookup db.ddaws88s.online
+
+netstat -lntp
+curl http://localhost:8080/health
+
+
+systemctl status
+netstat -lntp
+ps -ef | grep node
+curl http://localhost/health
+nslookup db.ddaws88s.online
+telnet IP port_number
+
+---------------------------------------------------------------
+Route 53 >> Hosted zones >> ddaws88s.online >> Create record
+---------------------------------------------------------------
+- Record name:  backend (.ddaws88s.online)
+- Value: 		172.31.11.204  -> Private IP
+- TTL: 			1
+- [[Create records]]
+---------------------------------------------------------------
+nslookup backend.ddaws88s.online
+
+
+---------------------------------------------------------------
+Route 53 >> Hosted zones >> ddaws88s.online >> Create record
+---------------------------------------------------------------
+- Record name:  (.ddaws88s.online)
+- Value: 		44.204.112.246  -> Public IP
+- TTL: 			1
+- [[Create records]]
+---------------------------------------------------------------
+
+
+Check logs:
+-----------------------
+less /var/log/messages
+-----------------------
+
+HTTP Status Code :
+=============================
+
+http://ddaws.online/api/transaction
+
+GET
+200  OK
+
+100 -> Informational
+Continuing or Switching protocols from HTTPS to HTTP
+
+2XX -> Success
+	200 -> OK
+	201 -> Created
+	204 -> Deleted
+	
+3XX -> Redirectional
+	301 -> URL redirection Permanent
+	302 -> temporary redirection
+	304 -> Not Modified (Cache)
+	
+4XX -> Client Side Error
+	404 -> Not Found
+	400 -> Bad Request, invalid JSON
+	401 -> Unauthorized, no authentication
+	403 -> Forbidden, no permission to this
+	
+https://emacet.ap.gov.in/api/results/2026/1234567
+
+https://emacet.ap.gov.in/api/results/2026/ -> GOVT admins
+
+{
+	"amountt": 200,
+	"description": ""
+}
+
+5XX -> Server Side Error
+	500 -> Internal server error
+	502 -> Bad Gateway
+	503 -> Service unavailable
+	
+	
+LinkedIn Blog
+===================
+Images
+crispy text
+
+Types of DNS records
+=======================
+NS 		-> Name Servers, who is managing the domains
+SOA 	-> Start of authority
+A 		-> IPv4
+AAAA 	-> IPv6
+MX 		-> Mail records
+TXT 	-> Verification
+CNAME 	-> Canonical name, another domain
+
+
+give free for public
+paid for business
+
+Roboshop-Documentation
+===========================
+https://github.com/daws-88s/roboshop-documentation.git
+
+
+CMD USED
+---------
+git remote add origin https://github.com/daws-88s/roboshop-documentation.git
+
+git add .; git commit -m "jenkins"; git push origin push 
