@@ -1,0 +1,77 @@
+A		-> IPv4
+AAAA	-> IPv6
+MX 		-> Mail
+NS 		-> Domain authority
+CNAME 	-> Point to another domain
+TXT 	-> verifiaction
+
+1XX 	-> Informational
+2XX		-> Success
+3XX		-> Redirectional
+4XX 	-> Client Error
+5XX 	-> Server Error
+
+NoSQL
+==========
+data is un sctructured
+useful when huge amounts of data
+data is stored as documents
+generally used for product catalogues, Reat-time analytics, etc but not for transactions
+
+Redis
+===========
+in-memory (RAM) database
+HD -> RAM -> Processor
+Key-Value database
+apps -> cache ->database
+
+Asynchronous
+==============
+ActiveMQ, IBM MQ, RabbitMQ, Kafka, etc...
+
+request and wait -> http
+fire and forget -> Mail, whatsapp, etc...
+
+Producer -> Who is sending message
+Consumer -> Who is consuming the message
+
+No waiting, good user experience
+Scalability
+Reliability
+
+Loose Coupling -> Other systems
+Tight Coupling -> within our systems
+
+Queue Management -> FIFO
+
+Ramesh ----------> Queue ----------> Suresh
+Producer   	 WhatsApp Server 		Consumer
+			 Message Broker
+			 
+PUB/SUB		-> 1 to Many
+Queue 		-> 1 to 1
+Publisher 	-> Who is sending messages
+Subscriber 	-> Who is following 
+								 ------------
+					 |<---------| Subscriber |
+					 |			 ------------
+------------        |``|         ------------      
+JoinDevOps |------->|  |<-------|Subscriber  |
+------------        |__|Topic    ------------
+					 |			 ------------
+					 |<---------| Subscriber |
+								 ------------
+								 
+Increase Service Quota:
+=================================================
+Search: Service Quotas > AWS services > Amazon Elastic Compute Cloud (Amazon EC2) > Running On-Demand Standard(A,C,D,H,I,M,R,T,Z) instances
+- Request increase at account level
+	16 - 50 quotas 
+	50 - 100 quotas
+	
+Generally databases by default not accept connections from remote servers
+
+backend-> combining all components in single module
+
+component == module == application
+node == box == server

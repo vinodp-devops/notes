@@ -149,4 +149,57 @@ CMD USED
 ---------
 git remote add origin https://github.com/daws-88s/roboshop-documentation.git
 
-git add .; git commit -m "jenkins"; git push origin push 
+git add .; git commit -m "jenkins"; git push origin push
+
+SQL
+========
+MySQL
+Oracle
+Postgress
+MSSQL
+
+Schema -> Tables -> Rows and Columns
+ 
+NoSQL
+==========
+data is in documents
+{
+	"name": "mouse",
+	"vendor":"amazon"
+}
+
+{
+	"name": "mouse"
+	"vendor": "amazon"
+	"faq": ""
+}
+
+proper data structure -> SQL
+Unproper data structure -> huge datat -> Huge 
+
+Redis
+==========
+Caching Database, Key Value Pair data
+
+Backend -> Database
+	1. Connecting establish -> Open
+	2. Request and response
+	3. Connection close
+	
+Backend -> Cache(If not exist) -> Connects to DB -> Keep it
+inside Cache
+
+TTL -> get response
+
+
+
+Queue
+========
+http -> wait for 30 sec, if server is not responding then error 
+
+Synchronous
+
+Joindevops -> rameh
+asynchronus
+
+order place -> delivery details
