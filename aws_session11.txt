@@ -75,3 +75,46 @@ backend-> combining all components in single module
 
 component == module == application
 node == box == server
+
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+
+
+nslookup mongodb.ddaws88s.online
+
+ps -ef | grep node
+
+curl http://localhost:8080/health
+
+
+check Catalogue logs
+=====================
+journalctl -u catalogue
+
+
+/api/catalogue -> forward those requests to catalogue component
+
+
+User Component
+===========================================
+Redis checks
+
+systemctl status user
+netstat -lntp
+telnet redis.ddaws88s.online 6379 # To escape : 'Ctrl+]'
+
+
+
+
+
+To Chart Amazon (aws team)
+=============================
+AWS Support > Your support cases > Details
+
+Correspondence
+Reply: 
+Hi,
+
+I need this on urgent basis, my projects are pending because of this
+
+Chat > (Submit)
+
