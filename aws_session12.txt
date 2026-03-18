@@ -1,0 +1,63 @@
+Java
+===========
+Build tool -> Ant, Maven, Gradle, etc.
+.java
+
+JDK -> Java Development Kit
+JRE -> Java Runtime Environment
+
+While developing we need JDK
+While developing JRE is enough
+
+JDK = JRE + developing utilities
+
+Source code -> Compile -> Byte Code -> 0 and 1
+node js = compile + running
+java = reunning directly
+
+Build tool = Maven
+output format -> .ear, .war, .jar
+.jar has inbuilt lightweight server
+
+Old Enterprise applications -> IBM Webspher, Oracle Weblogic, JBOSS EAP, etc... 
+=============================
+enterprise archive = frontend + backend + libraries -> .ear
+roboshop.ear
+
+1. tight couple
+2. small problem makes both frontend and backend down
+3. a small change is also costly. end to end testing should be done again
+4. Everytime frontend components should be downloaded from server
+
+Monolithic -> Apache Tomcat, JBOSS Application Server, etc. 
+=============
+Jquery, Angular JS, etc...
+
+.war
+frontend and backend
+1. easy mantaince
+2. data only will be served by backend through API
+3. loose coupling
+
+problems
+=========
+1. problem in catalogue makes entire backend down
+2. entire application should be developed in same programming language
+3. tight coupling between backend components
+
+
+Microservices -> inbuilt 
+==============
+catalogue, user,  cart, etc...
+
+1. each component is independent 
+2. different programming languages can be used
+3. problem in one component can't distrub other components
+
+
+nodejs = node + npm
+maven = jave + maven
+
+programming language == programming runtime
+mvn clean package -> clean previous builds + install dependencies + pack the application
+

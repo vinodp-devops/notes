@@ -4,6 +4,7 @@
 :/  -> search from top
 :?  -> search from bottom
 :set nu -> display line numbers
+:set nonu -> not display line numbers
 :noh -> no highlight
 :<line-number>
 :%d -> delete everything
