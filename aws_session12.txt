@@ -61,3 +61,28 @@ maven = jave + maven
 programming language == programming runtime
 mvn clean package -> clean previous builds + install dependencies + pack the application
 
+a new directory target will be created
+
+Python
+=============
+.py
+pip
+requirements.txt
+
+1.OOPS
+2. Scripting
+
+frontend logs -> backend component logs -> DB is running fine or not
+
+1. frontend nginx config recheck
+2. backend may not be running
+3. data is not loaded into DB
+4. database is not running
+5. DNS records are not updated
+
+502 -> Bad gateway -> Proxy server not able to get response from upstream server
+500 -> internal server error -> proxy able to reach upstream server, but proper response is not there 
+
+Re-Run the frontend component and restart nginx 
+==================================================================================
+ERROR <html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx/1.24.0</center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page -->
