@@ -7,7 +7,7 @@ JDK -> Java Development Kit
 JRE -> Java Runtime Environment
 
 While developing we need JDK
-While developing JRE is enough
+While running JRE is enough
 
 JDK = JRE + developing utilities
 
@@ -86,3 +86,4 @@ frontend logs -> backend component logs -> DB is running fine or not
 Re-Run the frontend component and restart nginx 
 ==================================================================================
 ERROR <html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx/1.24.0</center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page --> <!-- a padding to disable MSIE and Chrome friendly error page -->
+
