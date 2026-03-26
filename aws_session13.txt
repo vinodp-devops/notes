@@ -1,0 +1,31 @@
+sudo su -
+cd /    -> Root Directory
+
+Linux File System heirarchy :
+=============================
+/bin -> Essential User Command Binaries
+	=> Basic commands will be in /bin
+	=> which ls
+	   -----------------------------	
+	  | alias ls='ls --color=auto'  |
+      | /usr/bin/ls                 |
+	   -----------------------------
+	=> which cp
+	  -----------------------------
+	 | alias cp='cp -i'            |
+     |  /usr/bin/cp                |
+      -----------------------------
+	=> ls -l  /usr/bin/cp
+	   ---------------------------------------------------------
+	   | -rwxr-xr-x 1 root root 152808 Dec  9  2024 /usr/bin/cp |
+	   ---------------------------------------------------------
+
+
+/boot -> OS booting process commands or files (Static Files of the boot loader)
+	=> cd /boot
+	=> ls -l
+	
+
+/dev  -> devices. everything in Linux is file including keyboard, mouse, disk, USB, etc.
+
+	

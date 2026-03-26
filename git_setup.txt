@@ -1,0 +1,41 @@
+How to remove existing Git Credentials:
+-----------------------------------------
+1. Search: Credential Manager
+2. Windows Credentials
+3. Check carefully and remove git:https://github.com 
+4. Try Now with commands 
+
+
+GIT Config to Git Bash:
+------------------------
+
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+git config --list
+
+Sigin with code and activate with Password
+
+
+How to clone someones repo to our repo :
+------------------------------------------
+1. git clone <their repo>
+2. cd repo
+3. git remote remove origin
+4. git remote add origin <your repo>
+5. git push -u origin main
+
+
+Example:
+============
+1. git clone https://github.com/daws-88s/expense-documentation.git       -> There REPO
+2. cd expense-documentation
+3. git remote remove origin
+4. git remote add origin https://github.com/vinodp-devops/expense-documentation.git   -> Your REPO
+5. git push -u origin main
+6. git pull origin main --allow-unrelated-histories
+	If merge editor opens:
+	  Save and close (accept default merge message)
+	  :wq
+7. git push -u origin main
+
