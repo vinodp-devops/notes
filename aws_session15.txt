@@ -1,0 +1,13 @@
+1. Create repo either in organisation or directly
+2. Clone repo in laptop
+3. Write something
+4. git add., git add <file-name>
+5. git commit -m "message"
+6. git push origin main
+
+git config --global user.name
+git config --global user.email
+
+write only in laptops
+don't write in linux servers
+only pull in linux
