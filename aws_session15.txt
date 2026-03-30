@@ -11,3 +11,145 @@ git config --global user.email
 write only in laptops
 don't write in linux servers
 only pull in linux
+
+95% thinging + design 5% coding
+
+pseudo code -> no syntax, just assumption
+
+if today is sunday, enjoy the holiday otherwise go to school
+
+today = sunday
+if(today != 'sunday') {
+	print("Go to school")
+} else {
+	print("take holiday, enjoy")
+}
+
+15
+
+15%2 = 1
+if reminder  is 0 -> Even
+otherwise Odd
+
+number =15
+if(number%2==0) {
+	print("Even Number")
+} else {
+	print("Odd Number")
+}
+
+variables
+data types
+conditions
+functions
+loops
+error handling
+
+let x=1, y=0
+
+derive the formula
+
+submit finally
+
+variables are like containers that holds something
+
+DRY -> Don't Repeat Yourself
+change in one place reflect everywhere you refer
+easy to maintain
+readable
+
+PERSON1=Rama
+PERSON2=Vinod
+
+$VAR_NAME
+${VAR_NAME}
+
+sh 03-variables.sh Rama Vinod
+args == parameters
+
+$1=Rama
+$2=Vinod
+
+I want a command to be executed and take the output into variable, how to do that ?
+
+VAR_NAME=$(command)
+
+Special Variables:
+=====================
+$1 $2 ... $N args passed to script
+All variables passed to script: $@
+Number of variables passed to script: $#
+Script name: $0
+Present which directory you are in: $PWD
+Who is running this script: $USER
+Home directory of the user: $Home
+PID of the script: $$
+sleep 100 &
+Background process id: $!
+Exit status of previous command: $?
+
+$@ vs $*
+=============================
+$@ treats as args seperately
+$* treats as single args
+
+data types
+=============================
+variables are holding data...
+
+mobile number -> numbers
+	integers -> 33,768 -> 33,768
+	float -> 45.90
+	decimanl -> long number
+	complex -> 4+8i
+names -> string
+major? -> Yes or No boolean
+skills -> devops aws docker kubernetes -> list of skills
+skills -> map or dictionary
+	devops: 4-> key -> value
+	docker: 3
+	kubernetes: 2
+	
+areane4 -> 5
+seep round up ->
+copied code
+
+integer speed=8km/sec
+integer speed=8.2km/sec
+
+number
+string
+
+everything is string in shell 
+
+position/index in coding starts from 0
+
+Conditions
+================
+if or when
+
+if [expression]; then
+	code here
+fi
+
+if [expression]; then
+	code here
+elif [expression]; then
+	code here
+else
+	code here
+fi
+
+
+Exit Code:
+===================
+0-127
+0 -> Success
+anything else -> failure
+
+root user id -> 0
+other users -> greater than 0
+
+id -> gives user info
+id -u -> gives user id
+sudo id -u -> gives user id for sudo user is root
