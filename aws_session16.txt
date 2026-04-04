@@ -1,0 +1,143 @@
+$@ 		-> Get all values from Array Separatly
+$* 		-> Get all values as single 
+$# 		-> Get Number of vars passed to script
+$0 		-> Get Script Name
+$PWD 	-> Get Present Working Directory
+$USER	-> Get Who is running
+$HOME	-> Get Home directory of current user
+$$ 		-> Get the (PID)process instance id of current script
+Sleep 100 &
+$! 		-> Get Recently executed Background Command
+$? 		-> Get Exit status of previous command
+
+functions/methods
+====================
+functions are intended to complete specific task, it takes input and does the job 
+
+FUNC_NAME() {
+	$1, $2
+	code
+}
+
+FUNC_NAME parameter-1 parameter-2
+
+
+Redirections
+=====================
+ls -l > output.txt
+lsd -l > output.txt  -> It will not store error output
+cat output.txt
+
+1 -> Success
+2 -> Failure
+
+ls  -l 1> output.txt  => Stores only success output
+lsd -l 2> output.txt  => Stores only Failure output
+ls  -l &> output.txt  => Stores Both success & Failure output
+ls  -l &>> output.txt => Appends Both success & Failure output
+
+Creating logs folder in /var/log/shell-script
+----------------------------------------------
+sudo mkdir /var/log/shell-script
+sudo mkdir -p /var/log/shell-script -> To avoid error while running same cmd use '-p'
+ 
+
+To print on Screen and Store in Log file:
+===========================================
+tee -a filename.log
+tee -a $Log_file
+echo "$2 ... SUCCESS" | tee -a $LOGS_FILE
+
+Loops:
+=============
+for(int i=0; i<10; i++) {
+	print(i);
+}
+
+for i in {1..100}
+do
+	echo $i
+done
+
+Array Loops
+------------------------------------
+MODULES=("nginx" "mysql" "nodejs")
+
+for module in ${MODULES[@]}
+do
+    dnf install $module -y &>> $LOGS_FILE 
+    VALIDATE $? "Installing $module"
+done
+
+
+# sudo sh 14-loops.sh nginx mysql nodejs
+for package in "$@"
+do
+    dnf install $package -y &>> $LOGS_FILE
+    VALIDATE $? "Installing $package"
+done
+
+
+Colors
+==============================================
+'\e[31m'
+N -> '\e[0m' Normal
+R -> 31 Red
+G -> 32 Green
+Y -> 33 Yellow
+B -> 34 Blue
+P -> 35 Pink
+LB-> 36 Light Blue
+W -> 37 White
+
+echo -e "\e[33m Hellowworld"
+echo -e "\e[34m Hellowworld \e[0m I'm learing Shell" -> Hellowworld only get blue color
+
+
+Error Handling:
+==================================
+set -e # this will be checking for errors, if errors it will exit
+
+trap 'command(s)_to_run' ERR
+trap 'echo "There is an error in line $LINENO, Command: $BASH_COMMAND"' ERR
+
+
+Different ways of connecting AWS Account
+============================================
+- Console(API) 	-> Direct from AWS Account 
+- CLI(API) 	  	-> Throught COnfigurations using config.json
+- SDK(API) 		-> Connect through API's
+  (Python, Java, NodeJS, .Net)
+- Teraform(API) -> Using Teraform tool
+
+
+SDK -> Software Development Kit
+
+aws ec2 run-instances \
+    --image-id ami-0abcdef1234567890 \
+    --count 1 \
+    --instance-type t2.micro \
+    --key-name MyKeyPair \
+    --security-group-ids sg-0123456789abcdef0 \
+    --subnet-id subnet-0123456789abcdef0
+
+aws ec2 run-instances \
+    --image-id ami-0abcdef1234567890 \
+    --instance-type t2.micro \
+    --key-name MyKeyPair \
+    --security-group-ids sg-0123456789abcdef0 \
+    --subnet-id subnet-0123456789abcdef0 \
+	-- tag-specifications 'ResourceType=instance,Tags=[{Key=Name, Value=MyDemoInstance}]'
+	
+get the output, get public IP
+
+run another command to update Route53(r53) records
+
+ec2 instance
+r53 records
+
+roboshop.sh mongodb redis catalogue
+
+create mongodb instance
+update mongodb record
+
