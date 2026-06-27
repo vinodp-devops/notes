@@ -1,0 +1,131 @@
+1. ami_id
+2. sg_id
+
+t3.micro, ami_id, sg_id, 
+
+IAM authenticate 
+----------------------
+IAM >> Users >> Create User >> Username: shell >> Next >> 
+Attach policies directly : AdministratorAccess >> Next >> Create User
+
+shell >> Security credentials >> Access keys (Create access key) >> 
+Command Line Interface (CLI) >> Next >> Create access key
+
+#> aws configure
+#> AWS Access Key ID [None]: AKIA******************* | AKIAQS****************
+#> AWS Secret Access Key [None]: UH*************************/ | 7rj6*****T********/jqc9
+#> Default region name [None]: us-east1
+#> Default output format [None]:
+#> ls -la
+	.aws
+#> cd .aws
+#> ls -l
+#> cat credentials 	-> contains Access Key ID & Secret Access Key
+#> cat config 		-> contains regional information
+#> aws s3 ls
+
+t3.micro, ami_id, sg_id, 
+
+sh roboshop.sh mongodb catalogue
+
+$@
+
+for instance in "$@"
+do
+	echo $instance
+done
+
+Syntax:
+----------------------------------------------------------
+aws ec2 run-instances \
+    --image-id <ami-id> \
+    --instance-type <instance-type> \
+    --count 1 \
+    --key-name <key-pair-name> \
+    --security-group-ids sg-xxxxxxxxxxxxxxxxx \
+    --subnet-id <subnet-id> \
+    --query 'Instances[0].InstanceId' \
+    --output text
+
+Syntax
+aws ec2 run-instances \
+	--image-id <ami-id> \
+	--instance-type <instance-type> \ 
+	--tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=MyNewInstance}]"
+	--subnet-id <subnet-id> \
+	--key-name <key-pair-name> \ 
+	--security-group-ids <sg-id>\
+	--query "Reservations[0].Instances[0].PrivateIpAddress" \ 
+	--output text
+
+Run this command in Linux to create a new mongodb instance using CLI
+--------------------------------------------------------------------------------
+aws ec2 run-instances --image-id ami-0220d79f3f480ecf5 --instance-type t3.micro --security-group-ids sg-0a5abae1f19128f75 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]"
+
+instance id:  i-07bdd9d71b9584ddb
+
+aws query public ip using instance id (i-07bdd9d71b9584ddb)
+---------------------------------------------------------------------------------
+aws ec2 describe-instances --instance-ids i-07bdd9d71b9584ddb --query "Reservations[].Instances[].PublicIpAddress" --output text 
+44.213.63.83
+
+Get PrivateIpAddress CMD:
+----------------------------------------------------------------------------------
+aws ec2 run-instances --image-id ami-0220d79f3f480ecf5 --instance-type t3.micro --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=catalogue}]" --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text
+
+
+Create instance and get the instance id..
+
+Check if frontend or not
+	if frontend get the public ip
+	else get the private ip
+	
+aws route53 change-resource-record-sets \
+  --hosted-zone-id Z01774611FK5I5B92YWZ4 \
+  --change-batch '{
+	"Comment": "Updating A record",
+    "Changes": [{
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "example.com",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          { "Value": "1.2.3.4" }
+        ]
+      }
+    }]
+  }'
+
+1. check root user or not
+2. if root user continue, otherwise error
+3. colors
+4. logs
+5. validate function
+
+sed editor -> streamline editor
+
+insert text after line 1
+
+sed '1a Hi' users -> add the text after line 1, temporary edit only on screen. for perm use -i option
+
+sed '1i Hello' users -> before line 1 temporary
+sed -i '1i Hello' users -> before line 1 permanent
+
+sed '2d' users -> delete 2nd line in users temporary
+sed -i '2d' users -> delete 2nd line in users permanent
+
+sed '/sbin/d' users -> delete /sbin/ in users temporary
+sed -i '/sbin/d' users -> delete /sbin/ in users permanent
+
+Replace line
+--------------
+sed 's/sbin/SBIN/g' users -> Replace sbin as SBIN and 's' is substitute 'g' is global
+sed '2s/sbin/SBIN/g' users -> Replace sbin in 2nd line as SBIN 
+
+sed -i 's/sbin/SBIN/g' users -> Replace sbin as SBIN and 's' is substitute 'g' is global
+sed -i '2s/sbin/SBIN/g' users -> Replace sbin in 2nd line as SBIN 
+
+
+Replace 127.0.0.1 to 0.0.0.0
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
