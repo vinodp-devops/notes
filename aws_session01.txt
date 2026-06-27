@@ -1,3 +1,167 @@
+Q1)  What is DevOps ?
+Ans) DevOps is a combination of Development(Dev) and Operations (Ops). It is a culture and set of practices that helps developers and operations teams work together to build, test, deploy, and maintain software faster and more reliably through automation and continuous collaboration.
+
+Q2)  Why is DevOps important ?
+Ans) DevOps is important because it: Speeds up software delivery Improves collaboration between teams Reduces deployment failures, Enables continuous integration and continuous deployment (CI/CD), Increases system relaibility and scalability.
+
+Q3)  What is SDLC?
+Ans) SDLC stands for Software Development Life Cycle.
+It includes the following stages:
+- Requirements Gathering
+- Design Development
+- Testing
+- Deployment
+- Maintainance
+DevOps automates many of these stages to make software delivery faster.
+
+Q4)  What is CI/CD ?
+Ans) 
+Continuous Integration (CI): Developers
+frequently merge code into a shared repository where automated builds and tests run. 
+
+Continuous Delivery (CD): The applications
+Always readt for deployment
+
+Continuous Deployment: Every successful code
+change is automatically deployed to production without manual approval.
+
+Q5)  What is Git ?
+Ans) Git is a distributed version control system used to track code changes, manage multiple versions, and allow teams to collaborate efficiently.
+
+Q6)  What is GitHub ?
+Ans) GitHub is a cloud-based platform that hosts Git repositories. It provides feature like: Code hosting Pull Requests Branch management Issue tracking CI/CD integration.
+
+Q7)  What is the difference between Git and GitHub ?
+Ans) Git: Version control system, Works locally, Tracks code changes, Created by Linux Torvalds
+GitHub: Cloud hosting platform, works online, Stores Git repositories, Owned by Microsoft
+
+Q8)  What is branch in Git ?
+Ans) A branch is an independent line of development. Developers create branches to work on new features or bug fixes without affecting the main code.
+
+Q9)  What is a Merge?
+Ans) Merge combines changes from one branch into another branch after development is complete.
+
+Q10)  What is a Docker ?
+Ans)  Docker is a containerization platform that packages an application and all its dependencies into containers, ensuring it runs consistently across different environments.
+
+Q11)  What is a Container?
+Ans)  A container is a lightweight package containing:
+		- Application Libraries Dependencies
+		- Runtime Containers share the host
+		- Operating system, making them faster than vitrual machines.
+		
+Q12)  Difference between Docker Image and Docker Container ?
+Ans)  - Docker Image: Blueprint, Read-Only, Static 
+	  - Docker Container: Running Instance, Executable, Dynamic
+	  
+Q13)  What is Kubernetes?
+Ans)  Kubernetes is a container orchestration platform that automates:
+	  - Deployment Scaling
+	  - Load Balancing
+	  - Monitoring
+	  - Self-healing of containers
+
+Q14)  What is a Pod?
+Ans)  A Pod is the smallest deployable unit in Kubernetes. It can contain one or more containers sharing the same network and storage.
+
+Q15)  What is Jenkins?
+Ans)  Jenkins is an automation server used to automate: Code building, Testing, Deployment, It is widely used for implementing CI/CD pipelines.
+
+Q16)  What is a Pipline?
+Ans)  A pipeline is an automated workflow that takes code from development to production through stages like: Build, Test, Deploy.
+
+Q17)  What is Infrastructure as Code (IAC)?
+Ans) Infrastructure as Code means managing infrastructure using code instead of manually configuring servers.
+Popular IaC tools include:
+- Terraform
+- Ansible
+- AWS
+- CloudFormation
+
+Q18)  What is Terraform?
+Ans)  Terraform is a Infrastructure as Code tool that creates and manages cloud resources using configuration files.
+
+Q19)  What is Ansible?
+Ans)  Ansible is an automation tool used for:
+	  - Configuration management
+	  - Software Installation
+	  - Server Provisioning
+	  - Application Deployment
+	  - It is agentless and connects using SSH and WinRM.
+	  
+Q20)  What is a AWS ?
+Ans)  AWS (Amazon Web Services) is a Cloud Computing platform that provides services like:
+	  - Virtual Machines
+	  - Storage
+	  - Databases
+	  - Networking
+	  - Security
+	  - AI Services
+
+Q21)  What is EC2?
+Ans)  EC2(Elastic Compute Cloud) is a vitrual server service in AWS used to run applications in the cloud.
+
+Q22)  What is S3?
+Ans)  Amazon S3 is an object storage service used to store:
+	  - Images
+	  - Videos
+	  - Backups
+	  - Static websites
+	  - Application files
+	  
+Q23)  What is IAM?
+Ans)  IAM(Identity and Access Management) controls who can access
+	  - AWS resources and what actions they are allowed to perform for users
+	  
+Q24)  What is Linux?
+Ans)  Linux is an Open-Source operating system widely used for servers, because it is secure, stable, and highly customizable.
+
+Q25)  What is SSH?
+Ans)  SSH(Secure Shell) is a protocol used to securely connect to remote Linux Servers.
+	  - Example:
+	    ssh ubuntu@192.168.1.10 26.
+		
+Q26)  What is Monitoring?
+Ans)  Monitoring is the process of tracking:
+	  - CPU usage
+	  - Memory Disk
+	  - Network Application health
+	  - Common monitoring tools include:
+	     -> Prometheus
+		 -> Grafana
+		 -> Nagios
+		 
+Q27)  What is load balancing ?
+Ans)  Load balancing distributes:
+	  - Incoming Traffic across the multiple servers to improve performance and 
+	    availability
+		
+Q28)  What is Scaling ?
+Ans)  Vertical Scaling Increase CPU or RAM of a server.
+	  Horizontal Scaling Add more servers to handle increased traffic.
+	  
+
+Q29)  What is version control ?
+Ans)  Version control helps track code changes, maintain history, and collaborate with multiple developers. Git is the most commonly used version control system.
+
+Q30)  Explain the DevOps Lifecycle.
+Ans)  The DevOps lifecycle consists of:
+	  - Plan
+	  - Develop
+	  - Build
+	  - Test
+	  - Release
+	  - Deploy
+	  - Operate
+	  - Monitor
+	This cycle repeats continuosly to improve software quality and delivery speed.
+
+
+
+
+
+
+
 SDLC
 =====
 Software Development Life cycle
