@@ -18,3 +18,8 @@ ssh ec2-user@IP 'echo "Hello" > /tmp/hello.txt'
 filters
 =======
 VAR_NAME | FILTER_NAME
+
+Convert Yaml to JSON
+=====================
+1. Take Yaml into one variable
+2. Then, convert to JSON
